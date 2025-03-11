@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Epecade | Digital Aesthetic</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Zen+Dots&display=swap');
 
         /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         /* Background */
@@ -26,28 +25,28 @@
             overflow: hidden;
         }
 
-        /* Glassmorphic Card */
+        /* Glassmorphic Darker Card */
         .card {
-            background: rgba(105, 183, 161, 0.2);
-            padding: 40px;
+            background: rgba(30, 50, 45, 0.6); /* Darker */
+            padding: 35px;
             border-radius: 15px;
-            width: 400px;
+            width: 380px; /* Reduced width */
             text-align: center;
-            box-shadow: 0 0 20px rgba(105, 183, 161, 0.5);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(105, 183, 161, 0.4);
+            box-shadow: 0 0 20px rgba(40, 100, 90, 0.6);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(40, 100, 90, 0.5);
             transition: all 0.4s ease-in-out;
         }
 
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(105, 183, 161, 0.9);
+            box-shadow: 0 0 30px rgba(40, 100, 90, 0.9);
         }
 
         /* Profile Image */
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             border: 3px solid #69b7a1;
             transition: transform 0.4s ease-in-out;
@@ -57,30 +56,33 @@
             transform: scale(1.1);
         }
 
-        /* Epecade Name - Darker with Glow */
+        /* Epecade Name - Cyber Glow Effect */
         h1 {
             font-size: 30px;
-            margin-top: 15px;
+            margin-top: 10px;
             text-transform: uppercase;
-            font-family: 'Orbitron', sans-serif;
-            color: #285a52; /* Darker Shade */
-            text-shadow: 0 0 10px rgba(40, 90, 80, 0.8), 0 0 20px rgba(40, 90, 80, 0.5);
+            font-family: 'Zen Dots', sans-serif;
+            color: #1b5a50;
+            text-shadow: 0 0 15px rgba(40, 90, 80, 0.9), 0 0 30px rgba(40, 90, 80, 0.6);
+            letter-spacing: 2px;
         }
 
         /* Subtitle */
         p {
             font-size: 15px;
             margin: 5px 0;
+            font-family: 'Rajdhani', sans-serif;
             opacity: 0.9;
         }
 
-        /* Roles */
+        /* Roles - Slight Neon Glow */
         .role {
             font-size: 18px;
             font-weight: bold;
             margin: 5px 0;
-            color: rgba(255, 255, 255, 0.85);
-            text-shadow: 0 0 5px rgba(105, 183, 161, 0.5);
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(105, 183, 161, 0.6);
         }
 
         /* Links */
@@ -88,15 +90,16 @@
             display: block;
             background: rgba(105, 183, 161, 0.25);
             color: white;
-            padding: 12px;
-            margin: 12px 0;
+            padding: 10px;
+            margin: 10px 0;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 15px;
             text-align: center;
             transition: all 0.4s ease-in-out;
             border: 2px solid rgba(105, 183, 161, 0.6);
+            font-family: 'Rajdhani', sans-serif;
         }
 
         .links a:hover {
