@@ -3,129 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epecade | Digital Aesthetic</title>
+    <title>Epecade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Zen+Dots&display=swap');
-
-        /* General Reset */
-        * {
+        /* General Styling */
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background: url('https://i.imgur.com/NlaAXwd.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
         }
 
-        /* Background */
-        body {
-            background: url('https://cdn.discordapp.com/attachments/1349023535544271000/1349038408416231464/aesthetic_particles_twitch_banner.png?ex=67d1a56c&is=67d053ec&hm=8142c20e1ff4ec25d6ac1aba5bf0ae11e9e9428b42f94939a456c10ae4de53cf&') no-repeat center center/cover;
-            height: 100vh;
+        /* Main Container */
+        .container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            color: white;
-            overflow: hidden;
+            justify-content: center;
+            height: auto;
+            padding: 50px 20px;
         }
 
-        /* Glassmorphic Darker Card */
-        .card {
-            background: rgba(30, 50, 45, 0.6); /* Darker */
-            padding: 35px;
-            border-radius: 15px;
-            width: 380px; /* Reduced width */
-            text-align: center;
-            box-shadow: 0 0 20px rgba(40, 100, 90, 0.6);
-            backdrop-filter: blur(12px);
-            border: 2px solid rgba(40, 100, 90, 0.5);
-            transition: all 0.4s ease-in-out;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(40, 100, 90, 0.9);
-        }
-
-        /* Profile Image */
-        .profile-img {
-            width: 110px;
-            height: 110px;
+        /* Profile Section */
+        .profile {
+            position: relative;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 3px solid #69b7a1;
-            transition: transform 0.4s ease-in-out;
+            overflow: hidden;
+            box-shadow: 0px 0px 15px white;
         }
 
-        .profile-img:hover {
-            transform: scale(1.1);
+        .profile img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
         }
 
-        /* Epecade Name - Cyber Glow Effect */
-        h1 {
-            font-size: 30px;
-            margin-top: 10px;
-            text-transform: uppercase;
-            font-family: 'Zen Dots', sans-serif;
-            color: #1b5a50;
-            text-shadow: 0 0 15px rgba(40, 90, 80, 0.9), 0 0 30px rgba(40, 90, 80, 0.6);
-            letter-spacing: 2px;
+        /* Title */
+        .title {
+            font-size: 36px;
+            font-weight: 600;
+            margin: 15px 0;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
         }
 
-        /* Subtitle */
-        p {
-            font-size: 15px;
-            margin: 5px 0;
-            font-family: 'Rajdhani', sans-serif;
-            opacity: 0.9;
+        /* Buttons Section */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            max-width: 450px;
         }
 
-        /* Roles - Slight Neon Glow */
-        .role {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 5px 0;
-            color: rgba(255, 255, 255, 0.9);
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 10px rgba(105, 183, 161, 0.6);
-        }
-
-        /* Links */
-        .links a {
-            display: block;
-            background: rgba(105, 183, 161, 0.25);
-            color: white;
-            padding: 10px;
-            margin: 10px 0;
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 15px;
-            text-align: center;
-            transition: all 0.4s ease-in-out;
-            border: 2px solid rgba(105, 183, 161, 0.6);
-            font-family: 'Rajdhani', sans-serif;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
         }
 
-        .links a:hover {
-            transform: scale(1.1);
-            background: #69b7a1;
-            color: black;
-            box-shadow: 0 0 20px rgba(105, 183, 161, 1);
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Emojis for Buttons */
+        .btn span {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+
+        /* About Me Section */
+        .about-section {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-section h2 {
+            font-size: 28px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Highlighted Server Designer */
+        .highlight {
+            color: #3e8575; /* Darker shade of #69b7a5 */	
+            font-weight: bold;
+            font-size: 22px;
+            text-shadow: 0px 0px 15px #3e8575;
+            animation: glow-text 2s infinite alternate;
+            padding: 10px;
+            border: 2px solid #3e8575;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        @keyframes glow-text {
+            0% { text-shadow: 0px 0px 15px #3e8575; }
+            50% { text-shadow: 0px 0px 30px #3e8575; }
+            100% { text-shadow: 0px 0px 15px #3e8575; }
+        }
+
+        /* Scroll Effect */
+        .scroll {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-top: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .buttons {
+                grid-template-columns: 1fr;
+            }
         }
 
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <img class="profile-img" src="https://cdn.discordapp.com/attachments/1349023535544271000/1349038349205241958/IMG_20250220_205344.jpg?ex=67d1a55e&is=67d053de&hm=e314e03a9e7f7e7ea9e15aef05442ce70384880107418d351470bf9106079a1c&" alt="Profile Picture">
-        <h1>Epecade</h1>
-        <p>17 | Anime Enthusiast | Isekai Fanatic</p>
-        <p class="role">Server Designer</p>
-        <p class="role">Phonk Listener</p>
-        
-        <div class="links">
-            <a href="https://discord.gg/M3EfkyzBcy" target="_blank">Join My Discord Server</a>
-            <a href="https://www.roblox.com/users/1742576564/profile" target="_blank">Visit My Roblox Profile</a>
-            <a href="https://open.spotify.com/user/31tl6yltqddp7s73ovp6qqqp3cwq?si=VZxBmeBmSm-Y-hx5HmLg0A" target="_blank">Follow Me on Spotify</a>
+    <div class="container">
+        <div class="profile">
+            <img src="https://i.imgur.com/6ZElnuL.jpeg" alt="Epecade Profile">
+        </div>
+        <div class="title">Epecade</div>
+
+        <div class="buttons">
+            <a href="https://www.roblox.com/users/1742576564/profile" class="btn"><span>🎮</span> Roblox</a>
+            <a href="https://m.twitch.tv/epecade/home" class="btn"><span>📺</span> Twitch</a>
+            <a href="https://x.com/epecade15556?t=GZd34damjrkQw0SSJTYzug&s=09" class="btn"><span>🐦</span> Twitter</a>
+            <a href="https://youtube.com/@epecade?si=9g4ezoAxwhu-Y8GD" class="btn"><span>▶️</span> YouTube</a>
+            <a href="https://open.spotify.com/user/31tl6yltqddp7s73ovp6qqqp3cwq?si=dPh1fJWFSFC8wHugYr43FA" class="btn"><span>🎵</span> Spotify</a>
+            <a href="https://epecade.github.io/Epecade-hangout-server/epecade%20hangout%20server.html" class="btn"><span>💬</span> Discord</a>
         </div>
     </div>
+
+    <div class="about-section">
+        <h2>About Me</h2>
+        <p><strong>Age:</strong> 17</p>
+        <p><strong>Anime Enthusiast</strong> – My favorite genre is <strong>Isekai</strong>.</p>
+        <p>I also love listening to music. My favorite genre changes from time to time – sometimes it's <strong>lofi</strong>, other times it's <strong>phonk</strong>.</p>
+        <p class="highlight">I am also an <strong>Server Designer</strong>, crafting unique and engaging online communities.</p>
+    </div>
+
+    <div class="scroll"></div>
 
 </body>
 </html>
