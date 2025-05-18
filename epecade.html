@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,11 +32,54 @@
       cursor: pointer;
     }
 
-    .container {
+    .music-controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+    }
+
+    .speaker-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00ffcc;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .speaker-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .volume-slider {
+      margin-top: 10px;
+      -webkit-appearance: none;
+      width: 100px;
+      height: 6px;
+      background: #111;
+      border-radius: 10px;
+      outline: none;
+      box-shadow: 0 0 10px #00ffcc;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #00ffcc;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffcc;
+    }
+
+    .container {
       padding: 50px 20px;
     }
 
@@ -47,6 +89,7 @@
       border-radius: 50%;
       overflow: hidden;
       box-shadow: 0px 0px 15px white;
+      margin: auto;
     }
 
     .profile img {
@@ -68,6 +111,8 @@
       gap: 15px;
       margin-top: 20px;
       max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .btn {
@@ -153,11 +198,17 @@
   <!-- Overlay -->
   <div id="overlay">Click anywhere to continue</div>
 
-  <!-- Background Music -->
+  <!-- AUDIO ELEMENT (Highlight) -->
   <audio id="bgMusic" preload="auto" loop>
     <source src="https://files.catbox.moe/8uq4eq.mp3" type="audio/mpeg" />
     Your browser does not support the audio tag.
   </audio>
+
+  <!-- SPEAKER BUTTON & VOLUME SLIDER -->
+  <div class="music-controls">
+    <button id="speakerBtn" class="speaker-btn">🔊</button>
+    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+  </div>
 
   <div class="container">
     <div class="profile">
@@ -183,24 +234,36 @@
     <p class="highlight">I am also an <strong>Server Designer</strong>, crafting unique and engaging online communities.</p>
   </div>
 
-  <!-- JavaScript for overlay and music -->
+  <!-- JavaScript -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const overlay = document.getElementById("overlay");
-      const audio = document.getElementById("bgMusic");
-      audio.volume = 0.7;
+    const overlay = document.getElementById("overlay");
+    const audio = document.getElementById("bgMusic");
+    const speakerBtn = document.getElementById("speakerBtn");
+    const volumeSlider = document.getElementById("volumeSlider");
 
-      // Ensure the audio is loaded
-      audio.load();
+    // Set default volume
+    audio.volume = 0.7;
 
-      overlay.addEventListener("click", () => {
-        overlay.style.display = "none";
-        audio.play().then(() => {
-          console.log("Music started");
-        }).catch((err) => {
-          console.error("Playback failed:", err);
-        });
-      });
+    // Start audio on overlay click
+    overlay.addEventListener("click", () => {
+      overlay.style.display = "none";
+      audio.play().catch(err => console.error("Playback error:", err));
+    });
+
+    // Toggle mute/unmute
+    speakerBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        speakerBtn.textContent = "🔊";
+      } else {
+        audio.pause();
+        speakerBtn.textContent = "🔇";
+      }
+    });
+
+    // Volume control
+    volumeSlider.addEventListener("input", () => {
+      audio.volume = volumeSlider.value;
     });
   </script>
 
